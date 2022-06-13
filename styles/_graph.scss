@@ -1,0 +1,39 @@
+.graph {
+    .header{
+        margin-left: 20px;
+    }
+    .content{
+        max-width: 1240px;
+        display: flex;
+        margin: 0 auto;
+        margin-top: 20px;
+        .display {
+            width: 800px;
+            .cytoscape-graph{
+                height: 500px;
+            }
+        }
+        .update {
+            width: 400px;
+            margin-left: 12px;
+            .cytograph-edit {
+                .form {
+                    .node {
+                        .addNode {
+                            width: 50%;
+                        }
+                        .button {
+                            width: 40%;
+                            margin-left: 24px;
+                        }
+                    }
+                    .selectingNodes {
+                        .button {
+                            margin-top: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

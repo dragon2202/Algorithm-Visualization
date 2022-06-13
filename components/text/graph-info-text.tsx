@@ -1,0 +1,4 @@
+const GraphInfo = "Graph theory is a branch of mathematics that looks at graphs. Graphs are a set of vertices and a set of edges between vertices. Often, vertices are represented as points or circles, and edges are lines connecting those points. Usually the vertices represent individuals and the edges represent some sort of relationship between individuals. For example, think about Facebook. To represent Facebook as a graph, you could have a vertex for each person with a Facebook account, and two vertices would have an edge between them if they are friends, while they would not have an edge between them if they were not friends."
+export { GraphInfo };
+
+//Explanation from https://www.reddit.com/r/explainlikeimfive/comments/4bzo75/eli5_graph_theory_what_exactly_is_it_and_what_are/
