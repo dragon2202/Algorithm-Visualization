@@ -17,12 +17,13 @@ import CytographEdit from '../components/cytograph-edit'
 const Graph: NextPage = () => {
   const [nodes, setNodes] = useState([
     { data: { id: '1', label: 'Node 1' }, position: { x: 50, y: 50 } },
-    { data: { id: '2', label: 'Node 2' }, position: { x: 150, y: 50 } }
+    { data: { id: '2', label: 'Node 2' }, position: { x: 150, y: 50 } },
+    { data: { id: '3', label: 'Node 3' }, position: { x: 250, y: 50 } }
   ])
 
-  const [edges, setEdges] = useState([{
-    data: { source: '1', target: '2', label: 'Edge from Node1 to Node2' }
-  }])
+  const [edges, setEdges] = useState([
+    { data: { source: '1', target: '2', label: 'Edge from Node1 to Node2', weight: '3' } },
+  ])
 
   return (
     <div>
@@ -50,7 +51,7 @@ const Graph: NextPage = () => {
 
           <Card className='update'>
             <CardContent>
-              <CytographEdit nodes={nodes} edges={edges} setNodes={setNodes} setEdges={setEdges}/>
+              <CytographEdit key={0} nodes={nodes} edges={edges} setNodes={setNodes} setEdges={setEdges}/>
             </CardContent>
           </Card>
         </div>

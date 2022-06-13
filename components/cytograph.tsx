@@ -19,6 +19,7 @@ interface edge {
         source: string
         target: string
         label: string
+        weight: string
     }
 }
 
@@ -34,6 +35,14 @@ export default function cytograph(props: CryptographProps) {
             className='cytoscape-graph' 
             elements={passedElements} 
             zoomingEnabled={false}
+            stylesheet={[{
+                selector: 'edge',
+                css: {
+                  'label': '3',
+                  'text-margin-y': 15,
+                  'text-rotation': 'autorotate'
+                }
+            }]}
         />
     )
 }

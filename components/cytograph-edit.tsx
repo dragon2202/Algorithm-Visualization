@@ -36,34 +36,27 @@ interface CryptographEditProps {
 
 
 export default function CytographEdit(props: CryptographEditProps) {
-    const [selectedNode, setSelectedNode] = useState('');
-    const [selectedNode2, setSelectedNode2] = useState('');
-    const [showAddEdge, setShowAddEdge] = useState<boolean>(true)
+    const [selectedNode, setSelectedNode] = useState<string>('');
+    const [selectedNode2, setSelectedNode2] = useState<string>('');
+    const [showAddEdge, setShowAddEdge] = useState<boolean>(true)//disabled requires true to disable button
     useEffect(() => {
-        let source = props.edges.find(item => item.data.source === selectedNode)
-        let target = props.edges.find(item => item.data.target === selectedNode)
-        setShowAddEdge(false)
-        
-        if(source !== undefined) {
-            if(source.data.target !== selectedNode2) {
+        //First Select is the source, and Second Select is the target. Find if there's an edge matching source to target relationship
+        let source_target = props.edges.find(item => item.data.source === selectedNode && item.data.target === selectedNode2)
+        //Second Select is the source, and First Select is the target. This is just a reverse of source_target
+        let target_source = props.edges.find(item => item.data.source === selectedNode2 && item.data.target === selectedNode)
+        //If both selected input is empty string or non selected
+        if(selectedNode !== '' && selectedNode2 !== '') {
+            setShowAddEdge(false)//
+            if(selectedNode === selectedNode2) {//if two nodes are the same
+                setShowAddEdge(true)
+            }
+            if(source_target !== undefined) {//If there is no edge from source to target
+                setShowAddEdge(true)
+            }
+            if(target_source !== undefined) {//If there is no edge from target to source
                 setShowAddEdge(true)
             }
         }
-
-        if(target !== undefined) {
-            if(target.data.source !== selectedNode2) {
-                setShowAddEdge(true)
-            }
-        }
-        
-        if(selectedNode === "" || selectedNode2 === "") {
-            setShowAddEdge(true)
-        }
-
-        if(selectedNode === selectedNode2) {
-            setShowAddEdge(true)
-        }
-
     },[selectedNode, selectedNode2])
 
     const handleChange = (event: SelectChangeEvent) => {
@@ -80,9 +73,8 @@ export default function CytographEdit(props: CryptographEditProps) {
 
     function handleAddEdge(event: any) {
         event.preventDefault()
-        console.log(selectedNode)
-        console.log(selectedNode2)
-        props.setNodes([...props.edges, { data: {  source: selectedNode.toString(), target: selectedNode2.toString(), label: "2" } }])
+        props.setEdges([...props.edges, { data: { source: selectedNode.toString(), target: selectedNode2.toString(), label: "Test Edge" }}])
+        setSelectedNode(''), setSelectedNode2(''), setShowAddEdge(true)//reset all states
     }
 
     return (
@@ -101,7 +93,7 @@ export default function CytographEdit(props: CryptographEditProps) {
                 <Box className="selectingNodes">
                     <form onSubmit={(event) => handleAddEdge(event)}>
                         <InputLabel>Selected Node</InputLabel>
-                        <Select value={selectedNode} label="Selected Node" onChange={(event) => handleChange(event)}>
+                        <Select value={selectedNode} label="Selected Node" onChange={(event) => handleChange(event)} sx={{width: '100%'}}>
                             <MenuItem value={''} key={0}>None</MenuItem>
                             {
                                 props.nodes.map((item) => {
@@ -112,7 +104,7 @@ export default function CytographEdit(props: CryptographEditProps) {
                             }
                         </Select>
                         <InputLabel>Selected Node 2</InputLabel>
-                        <Select value={selectedNode2} label="Selected Node 2" onChange={(event) => handleChange2(event)}>
+                        <Select value={selectedNode2} label="Selected Node 2" onChange={(event) => handleChange2(event)} sx={{width: '100%'}}>
                             <MenuItem value={''} key={0}>None</MenuItem>
                             {
                                 props.nodes.map((item) => {
