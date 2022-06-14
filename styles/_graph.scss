@@ -1,46 +1,63 @@
 .graph {
-    .header{
+    .header {
         margin-left: 20px;
     }
-    .content{
+
+    .content {
         max-width: 1240px;
         display: flex;
         margin: 0 auto;
         margin-top: 20px;
+
         .display {
             width: 800px;
-            .cytoscape-graph{
+
+            .cytoscape-graph {
                 height: 500px;
             }
         }
+
         .update {
             width: 400px;
             margin-left: 12px;
             .cytograph-edit {
-                .form {
-                    .node {
-                        .addNode {
-                            width: 50%;
-                        }
-                        .button {
-                            width: 40%;
-                            margin-left: 24px;
-                        }
-                    }
-                    .selectingNodes {
-                        .two_nodes {
-                            margin-top: 20px;
-                            .source {
-                                margin-right: 5px;
-                                width: 45%
+                .button_group {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                }
+                .cytograph-edit-add {
+                    .form {
+                        .node {
+                            .addNode {
+                                width: 100%;
                             }
-                            .target {
-                                margin-left: 5px;
-                                width: 45%
+
+                            .button {
+                                margin-top: 24px;
                             }
                         }
-                        .weight_button{
-                            margin-top: 10px;
+                        .selectingNodes {
+                            .two_nodes {
+                                margin-top: 20px;
+                                .source {
+                                    margin-right: 5px;
+                                    width: 45%
+                                }
+
+                                .target {
+                                    margin-left: 5px;
+                                    width: 45%
+                                }
+                            }
+                            .weight_button {
+                                margin-top: 10px;
+                            }
+
+                            .button {
+                                margin-top: 20px;
+                            }
                         }
                     }
                 }

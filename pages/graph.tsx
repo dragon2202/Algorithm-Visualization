@@ -10,8 +10,8 @@ import Tooltip from '@mui/material/Tooltip'
 import Button from '@mui/material/Button'
 
 import { GraphInfo } from '../components/text/graph-info-text'
-import Cytograph from '../components/cytograph'
-import CytographEdit from '../components/cytograph-edit'
+import Cytograph from '../components/cytograph/cytograph'
+import CytographEdit from '../components/cytograph/edit/cytograph-edit'
 
 
 const Graph: NextPage = () => {
@@ -51,7 +51,7 @@ const Graph: NextPage = () => {
 
           <Card className='update'>
             <CardContent>
-              <CytographEdit key={0} nodes={nodes} edges={edges} setNodes={setNodes} setEdges={setEdges}/>
+              <CytographEdit nodes={nodes} edges={edges} setNodes={setNodes} setEdges={setEdges}/>
             </CardContent>
           </Card>
         </div>
