@@ -28,7 +28,18 @@
                         }
                     }
                     .selectingNodes {
-                        .button {
+                        .two_nodes {
+                            margin-top: 20px;
+                            .source {
+                                margin-right: 5px;
+                                width: 45%
+                            }
+                            .target {
+                                margin-left: 5px;
+                                width: 45%
+                            }
+                        }
+                        .weight_button{
                             margin-top: 10px;
                         }
                     }

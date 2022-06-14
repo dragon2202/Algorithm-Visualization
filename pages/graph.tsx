@@ -22,7 +22,7 @@ const Graph: NextPage = () => {
   ])
 
   const [edges, setEdges] = useState([
-    { data: { source: '1', target: '2', label: 'Edge from Node1 to Node2', weight: '3' } },
+    { data: { source: '1', target: '2', weight: '3' } },
   ])
 
   return (
