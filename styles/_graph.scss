@@ -86,11 +86,14 @@
                 .cytograph-edit-delete {
                     .form {
                         .node {
-                            .textfield {
-                                margin-top: 12px;
-                            }
                             .button {
                                 margin-top: 12px;
+                            }
+                        }
+
+                        .edge {
+                            .edgeWeightSelect {
+                                margin-bottom: 12px;
                             }
                         }
                     }

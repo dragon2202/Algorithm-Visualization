@@ -32,7 +32,7 @@ export default function CytographEditUpdate(props: CytographPropsEdit) {
     },[edge])
 
     //updates selected node's name
-    function updateName(event: any) {
+    function updateNode(event: any) {
         event.preventDefault()
         let newNodes = [...props.nodes]
         //Find Index, then use index to search the shallow copy array so that we can update the label with form data
@@ -68,7 +68,7 @@ export default function CytographEditUpdate(props: CytographPropsEdit) {
         <div className="cytograph-edit-update">
             <Box className="form">
                 <h2>Update Node/Edge</h2>
-                <form onSubmit={(event) => updateName(event)}>
+                <form onSubmit={(event) => updateNode(event)}>
                     <FormControl fullWidth className="node">
                         <InputLabel>Node</InputLabel>
                         <Select label="Source" name="nameSelect" defaultValue={''} onChange={(event) => setNode(event.target.value)}>
@@ -76,7 +76,7 @@ export default function CytographEditUpdate(props: CytographPropsEdit) {
                             {
                                 props.nodes.map((item, index) => {
                                     return (
-                                        <MenuItem value={item.data.id} key={index}>{item.data.label}</MenuItem>
+                                        <MenuItem value={item.data.id} key={index}>{item.data.id}</MenuItem>
                                     )
                                 })
                             }

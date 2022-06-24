@@ -37,7 +37,7 @@ export default function CytographEditAdd(props: CytographPropsEdit) {
 
     function handleAddNode(event: any) {
         event.preventDefault()
-        props.setNodes([...props.nodes, { data: { id: (props.nodes.length + 1).toString(), label: event.target.addNode.value }, position: { x: 300, y: 200 } }])
+        props.setNodes([...props.nodes, { data: { id: (parseInt(props.nodes[props.nodes.length - 1].data.id) + 1).toString(), label: event.target.addNode.value }, position: { x: 300, y: 200 } }])
     }
 
     function handleAddEdge(event: any) {
@@ -45,7 +45,6 @@ export default function CytographEditAdd(props: CytographPropsEdit) {
         props.setEdges([...props.edges, 
             { data: 
                 { 
-                    id: (props.edges.length + 1).toString(),
                     source: selectedNode.toString(), 
                     target: selectedNode2.toString(), 
                     weight: weight.toString(),
