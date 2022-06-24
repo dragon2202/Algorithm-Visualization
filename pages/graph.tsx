@@ -11,7 +11,7 @@ import Button from '@mui/material/Button'
 
 import { GraphInfo } from '../components/text/graph-info-text'
 import Cytograph from '../components/cytograph/cytograph'
-import CytographEdit from '../components/cytograph/edit/cytograph-edit'
+import CytographRender from '../components/cytograph/edit/cytograph-render'
 
 
 const Graph: NextPage = () => {
@@ -22,7 +22,7 @@ const Graph: NextPage = () => {
   ])
 
   const [edges, setEdges] = useState([
-    { data: { source: '1', target: '2', weight: '3' } },
+    { data: { source: '1', target: '2', label: 'Node 1 to Node 2',weight: '3' } },
   ])
 
   return (
@@ -51,7 +51,7 @@ const Graph: NextPage = () => {
 
           <Card className='update'>
             <CardContent>
-              <CytographEdit nodes={nodes} edges={edges} setNodes={setNodes} setEdges={setEdges}/>
+              <CytographRender nodes={nodes} edges={edges} setNodes={setNodes} setEdges={setEdges}/>
             </CardContent>
           </Card>
         </div>

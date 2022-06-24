@@ -42,7 +42,16 @@ export default function CytographEditAdd(props: CytographPropsEdit) {
 
     function handleAddEdge(event: any) {
         event.preventDefault()
-        props.setEdges([...props.edges, { data: { source: selectedNode.toString(), target: selectedNode2.toString(), weight: weight.toString() } }])
+        props.setEdges([...props.edges, 
+            { data: 
+                { 
+                    id: (props.edges.length + 1).toString(),
+                    source: selectedNode.toString(), 
+                    target: selectedNode2.toString(), 
+                    weight: weight.toString(),
+                } 
+            }
+        ])
         setSelectedNode(''), setSelectedNode2(''), setShowAddEdge(true)//reset all states
     }
 
