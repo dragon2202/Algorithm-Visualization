@@ -1,6 +1,5 @@
-import CytographPropsEdit from '../../props/cytograph_edit_props'
+import CytographProps from '../../props/cytograph_props'
 import Box from '@mui/material/Box'
-import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
 import Select from '@mui/material/Select'
 import InputLabel from '@mui/material/InputLabel'
@@ -9,7 +8,7 @@ import Divider from '@mui/material/Divider'
 import { FormControl } from '@mui/material'
 import { useState } from 'react'
 
-export default function CytographEditDelete(props: CytographPropsEdit) {
+export default function CytographEditDelete(props: CytographProps) {
     const [node, setNode] = useState<string>('')
     const [edge, setEdge] = useState<string>('')
 

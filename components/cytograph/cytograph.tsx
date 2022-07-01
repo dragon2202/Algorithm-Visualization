@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic';
-import CytographProps from '../props/cytograph_props'
-const CytoscapeComponent = dynamic(()=> import('react-cytoscapejs'), {
+import CytographProps from '../props/cytograph_readonly_props'
+const CytoscapeComponent = dynamic(() => import('react-cytoscapejs'), {
     ssr:false,
 })
 
@@ -15,8 +15,9 @@ export default function cytograph(props: CytographProps) {
             {
                 selector: 'node',
                 css: {
+                  'height': 55,
+                  'width': 55,
                   'content': 'data(label)',
-                  'text-margin-y': -25,
                   'text-valign': 'center',
                   'text-halign': 'center'
                 }
@@ -26,6 +27,7 @@ export default function cytograph(props: CytographProps) {
                 css: {
                   'label': 'data(weight)',
                   'text-margin-y': 20,
+                  'text-margin-x': 0,
                   'text-rotation': 'autorotate'
                 }
             }]}

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import CytographPropsEdit from '../../props/cytograph_edit_props'
+import CytographProps from '../../props/cytograph_props'
 import Box from '@mui/material/Box'
 import Select from '@mui/material/Select'
 import InputLabel from '@mui/material/InputLabel'
@@ -9,7 +9,7 @@ import Button from '@mui/material/Button'
 import Divider from '@mui/material/Divider'
 import { FormControl } from '@mui/material'
 
-export default function CytographEditUpdate(props: CytographPropsEdit) {
+export default function CytographEditUpdate(props: CytographProps) {
     const [node, setNode] = useState<string>('')
     const [nodeBoolean, setNodeBoolean] = useState<boolean>(true)
     const [edge, setEdge] = useState<string>('')
@@ -76,7 +76,7 @@ export default function CytographEditUpdate(props: CytographPropsEdit) {
                             {
                                 props.nodes.map((item, index) => {
                                     return (
-                                        <MenuItem value={item.data.id} key={index}>{item.data.id}</MenuItem>
+                                        <MenuItem value={item.data.id} key={index}>{item.data.label}</MenuItem>
                                     )
                                 })
                             }
