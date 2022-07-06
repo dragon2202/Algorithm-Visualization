@@ -56,13 +56,15 @@ export default function Dijkstra(props: CytographProps) {
             }
             unvisited.splice(indexOfNodeUnvisited, 1)
             visited.push(node)
-            unvisitedDistance = [...distance]
-            let indexArray = []
+            unvisitedDistance = [...distance]//shallow copy distance to update unvisited distance array
+            let indexArray = []//stores all indexes of visited elements
+            //finds all indexes visited nodes from passed node. They are one to one in indexes
+            //prop.nodes[i] === distance[i] === previous[i]
             for (let k = 0; k < visited.length; k++) {
                 indexArray.push(props.nodes.findIndex(item => item.data.id === visited[k]))
             }
-            indexArray.sort(function (a, b) { return b - a })
-            for (let l = 0; l < indexArray.length; l++) {
+            indexArray.sort(function (a, b) { return b - a })//sort in reverse order, biggest num first, smallest num last
+            for (let l = 0; l < indexArray.length; l++) {//remove distances that are visited
                 unvisitedDistance.splice(indexArray[l], 1);
             }
         }
