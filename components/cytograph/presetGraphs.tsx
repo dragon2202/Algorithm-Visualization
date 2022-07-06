@@ -1,9 +1,4 @@
-import { useState, useEffect } from 'react'
 import Box from '@mui/material/Box'
-import Select from '@mui/material/Select'
-import InputLabel from '@mui/material/InputLabel'
-import MenuItem from '@mui/material/MenuItem'
-import { FormControl } from '@mui/material'
 import Button from '@mui/material/Button'
 
 interface Cytograph {
@@ -34,7 +29,7 @@ const array = [
 
             { data: { source: '3', target: '6', label: 'C to F', weight: '6' } },
 
-            { data: { source: '4', target: '6', label: 'D to F', weight: '2' } },
+            { data: { source: '4', target: '6', label: 'D to F', weight: '1' } },
             { data: { source: '4', target: '7', label: 'D to G', weight: '6' } },
 
             { data: { source: '5', target: '7', label: 'E to G', weight: '7' } },

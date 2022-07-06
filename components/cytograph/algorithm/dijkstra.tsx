@@ -1,5 +1,5 @@
 import CytographProps from '../../props/cytograph_props'
-import {useState} from 'react'
+import { useState } from 'react'
 
 function test(item: any) {
     const foundItem = item.edges.filter((item: any) => item.data.source === "1" || item.data.target === "1")
@@ -8,7 +8,8 @@ function test(item: any) {
 
 export default function Dijkstra(props: CytographProps) {
     let unvisited = props.nodes.map(item => item.data.id)
-    let visited = []
+    let visited: any = []
+    let unvisitedDistance = []
     let distance = new Array(props.nodes.length)
     let previous = new Array(props.nodes.length)
     let index = 0
@@ -19,12 +20,11 @@ export default function Dijkstra(props: CytographProps) {
             const startingNode = unvisited.shift()
             visited.push(startingNode)//remove first element from unvisited and pushing to visited
             distance[i] = 0
-
             const edgesConnected = props.edges.filter((item: any) => item.data.source === startingNode || item.data.target === startingNode)
             for (let j = 0; j < edgesConnected.length; j++) {
                 //find index of node array based of source/target
                 //if node is n places of props.node than distance[n] and previous[n] is changed to mimic a mapping
-                if(edgesConnected[j].data.source === startingNode) {
+                if (edgesConnected[j].data.source === startingNode) {
                     index = props.nodes.findIndex(item => item.data.id === edgesConnected[j].data.target)
                 } else {
                     index = props.nodes.findIndex(item => item.data.id === edgesConnected[j].data.source)
@@ -34,19 +34,60 @@ export default function Dijkstra(props: CytographProps) {
                     previous[index] = parseInt(startingNode!)
                 }
             }
-            console.log(distance)
-            console.log(previous)
+            unvisitedDistance = distance.filter(item => item > 0)
+        } else {
+            const indexOfNodeUnvisited = unvisitedDistance.indexOf(Math.min.apply(null, unvisitedDistance))
+            const node = unvisited[indexOfNodeUnvisited]
+            console.log(node)
+            const indexofNode = props.nodes.findIndex(item => item.data.id === node)
+            //keep track of unvisited and visted nodes
+            const edgesConnected = props.edges.filter((item: any) => (item.data.source === node || item.data.target === node) && !((visited.includes(item.data.source) || (visited.includes(item.data.target)))))
+
+            for (let j = 0; j < edgesConnected.length; j++) {
+                if (edgesConnected[j].data.source === node) {
+                    index = props.nodes.findIndex(item => item.data.id === edgesConnected[j].data.target)
+                } else {
+                    index = props.nodes.findIndex(item => item.data.id === edgesConnected[j].data.source)
+                }
+                if (parseInt(distance[index]) > (parseInt(edgesConnected[j].data.weight) + parseInt(distance[indexofNode]))) {
+                    distance[index] = parseInt(edgesConnected[j].data.weight) + parseInt(distance[indexofNode])
+                    previous[index] = parseInt(node!)
+                }
+            }
+            unvisited.splice(indexOfNodeUnvisited, 1)
+            visited.push(node)
+            unvisitedDistance = [...distance]
+            let indexArray = []
+            for (let k = 0; k < visited.length; k++) {
+                indexArray.push(props.nodes.findIndex(item => item.data.id === visited[k]))
+            }
+            indexArray.sort(function (a, b) { return b - a })
+            for (let l = 0; l < indexArray.length; l++) {
+                unvisitedDistance.splice(indexArray[l], 1);
+            }
         }
     }
-    //test(props)
+    console.log(distance)
+    console.log(previous)
 }
 
 
 /*
-    let distance = []
-    let previous = []
-    let visitied = []
-    let unvisited = []
+    unvisited.splice(indexOfNodeUnvisited, 1)
+            visited.push(node)
+            unvisitedDistance = [...distance]
+            let indexArray = []
+            for(let k = 0; k < visited.length; k++) {
+                indexArray.push(props.nodes.findIndex(item => item.data.id === visited[k]))
+            }
+            console.log(unvisitedDistance)
+            indexArray.sort(function(a,b){ return b - a})
+            console.log(indexArray)
+            for (let l = 0; l < indexArray.length; l++){
+                unvisitedDistance.splice(indexArray[l],1);
+            }
+            console.log(unvisitedDistance)
+            console.log()
 */
 //https://gist.github.com/Prottoy2938/66849e04b0bac459606059f5f9f3aa1a
 
