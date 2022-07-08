@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import Navigation from '../components/navigation'
 
@@ -13,6 +13,21 @@ import { GraphInfo } from '../components/text/graph-info-text'
 import Cytograph from '../components/cytograph/cytograph'
 import CytographRender from '../components/cytograph/cytograph-render'
 
+/* 
+  let edges: any[] = []
+
+  useEffect(() => {
+    if (props.previous.length !== 0) {
+      for(var i = 1; i < props.nodes.length; i++) {
+        //const edge = props.edges.find((item) => (item.data.source === props.nodes[i].data.id && item.data.target === props.previous[i]) || (item.data.source === props.previous[i] && item.data.target === props.nodes[i].data.id))
+        const edge = props.edges.find((item) => (item.data.source === props.nodes[i].data.id && item.data.target === props.previous[i].toString()) || (item.data.source === props.previous[i].toString() && item.data.target === props.nodes[i].data.id))
+        edges.push(edge)
+      }
+      setPassedElements([...props.nodes, ...edges])
+    }
+  },[props.previous])
+
+*/
 
 const Graph: NextPage = () => {
   const [nodes, setNodes] = useState([
@@ -24,6 +39,23 @@ const Graph: NextPage = () => {
   const [edges, setEdges] = useState([
     { data: { source: '1', target: '2', label: 'Node 1 to Node 2', weight: '3' } },
   ])
+
+  const [distance, setDistance] = useState<Array<any>>([])
+  const [previous, setPrevious] = useState<Array<any>>([])
+  let newEdges: any[] = []
+  //useEffect to construct a new graph with only edges optimized by dijkstra
+  //previous is the array of node id's that are parents of node[i]
+  useEffect(() => {
+    if (previous.length !== 0) {
+      for(var i = 1; i < nodes.length; i++) {
+        if(previous[i] !== null) {
+          const edge = edges.find((item) => (item.data.source === nodes[i].data.id && item.data.target === previous[i].toString()) || (item.data.source === previous[i].toString() && item.data.target === nodes[i].data.id))
+          newEdges.push(edge)
+        }
+      }
+      setEdges([...newEdges])
+    }
+  },[previous])
 
   return (
     <div>
@@ -45,13 +77,22 @@ const Graph: NextPage = () => {
               }
             />
             <CardContent>
-                <Cytograph nodes={nodes} edges={edges}/>
+                <Cytograph nodes={nodes} edges={edges} distance={distance} previous={previous}/>
             </CardContent>
           </Card>
 
           <Card className='update'>
             <CardContent>
-              <CytographRender nodes={nodes} edges={edges} setNodes={setNodes} setEdges={setEdges}/>
+              <CytographRender 
+                nodes={nodes} 
+                edges={edges} 
+                distance={distance} 
+                previous={previous} 
+                setNodes={setNodes} 
+                setEdges={setEdges} 
+                setDistance={setDistance} 
+                setPrevious={setPrevious}
+              />
             </CardContent>
           </Card>
         </div>

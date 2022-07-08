@@ -1,38 +1,37 @@
 import dynamic from 'next/dynamic';
 import CytographProps from '../props/cytograph_readonly_props'
 const CytoscapeComponent = dynamic(() => import('react-cytoscapejs'), {
-    ssr:false,
+  ssr: false,
 })
 
 export default function cytograph(props: CytographProps) {
-    let passedElements = [...props.nodes, ...props.edges]
-    return (
-        <CytoscapeComponent 
-            className='cytoscape-graph' 
-            elements={passedElements} 
-            zoomingEnabled={false}
-            stylesheet={[   
-            {
-                selector: 'node',
-                css: {
-                  'height': 55,
-                  'width': 55,
-                  'content': 'data(label)',
-                  'text-valign': 'center',
-                  'text-halign': 'center'
-                }
-              },
-              {
-                selector: 'edge',
-                css: {
-                  'label': 'data(weight)',
-                  'text-margin-y': 20,
-                  'text-margin-x': 0,
-                  'text-rotation': 'autorotate'
-                }
-            }]}
-        />
-    )
+  let passedElements = [...props.nodes, ...props.edges]
+  return (
+    <CytoscapeComponent
+      className='cytoscape-graph'
+      elements={passedElements}
+      zoomingEnabled={false}
+      stylesheet={[
+        {
+          selector: 'node',
+          css: {
+            'height': 55,
+            'width': 55,
+            'content': 'data(label)',
+            'text-valign': 'center',
+            'text-halign': 'center'
+          }
+        },
+        {
+          selector: 'edge',
+          css: {
+            'label': 'data(weight)',
+            'font-weight': 'bold',
+          }
+        }
+      ]}
+    />
+  )
 }
 
 //https://github.com/plotly/react-cytoscapejs

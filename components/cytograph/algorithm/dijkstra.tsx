@@ -1,10 +1,4 @@
-import CytographProps from '../../props/cytograph_props'
-import { useState } from 'react'
-
-function test(item: any) {
-    const foundItem = item.edges.filter((item: any) => item.data.source === "1" || item.data.target === "1")
-    console.log(foundItem)
-}
+import CytographProps from '../../props/cytograph_master_props'
 
 export default function Dijkstra(props: CytographProps) {
     let unvisited = props.nodes.map(item => item.data.id)
@@ -38,7 +32,6 @@ export default function Dijkstra(props: CytographProps) {
         } else {
             const indexOfNodeUnvisited = unvisitedDistance.indexOf(Math.min.apply(null, unvisitedDistance))
             const node = unvisited[indexOfNodeUnvisited]
-            console.log(node)
             const indexofNode = props.nodes.findIndex(item => item.data.id === node)
             //keep track of unvisited and visted nodes
             const edgesConnected = props.edges.filter((item: any) => (item.data.source === node || item.data.target === node) && !((visited.includes(item.data.source) || (visited.includes(item.data.target)))))
@@ -69,28 +62,13 @@ export default function Dijkstra(props: CytographProps) {
             }
         }
     }
-    console.log(distance)
-    console.log(previous)
+    props.setDistance(distance)
+    props.setPrevious(previous)
 }
 
+// store all previous edges
+// create a dijkstra tree of distance and previous
 
-/*
-    unvisited.splice(indexOfNodeUnvisited, 1)
-            visited.push(node)
-            unvisitedDistance = [...distance]
-            let indexArray = []
-            for(let k = 0; k < visited.length; k++) {
-                indexArray.push(props.nodes.findIndex(item => item.data.id === visited[k]))
-            }
-            console.log(unvisitedDistance)
-            indexArray.sort(function(a,b){ return b - a})
-            console.log(indexArray)
-            for (let l = 0; l < indexArray.length; l++){
-                unvisitedDistance.splice(indexArray[l],1);
-            }
-            console.log(unvisitedDistance)
-            console.log()
-*/
 //https://gist.github.com/Prottoy2938/66849e04b0bac459606059f5f9f3aa1a
 
 //https://www.youtube.com/watch?v=K_1urzWrzLs

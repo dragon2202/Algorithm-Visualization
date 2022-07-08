@@ -2,7 +2,7 @@ import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 
 import Dikjstra from './algorithm/dijkstra'
-import CytographProps from '../props/cytograph_props'
+import CytographProps from '../props/cytograph_master_props'
 
 export default function Presets(props: CytographProps) {
     return (

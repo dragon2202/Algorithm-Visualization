@@ -17,12 +17,15 @@ interface edge {
     }
 }
 
-interface CytographProps {
+interface Cytograph {
     nodes: node[]
     edges: edge[]
     distance: string[]
     previous: string[]
+    setNodes: (value: any) => void
+    setEdges: (value: any) => void
+    setDistance: (value: any) => void
+    setPrevious: (value: any) => void
 }
 
-
-export default CytographProps
+export default Cytograph

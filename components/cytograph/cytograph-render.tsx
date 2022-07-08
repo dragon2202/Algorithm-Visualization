@@ -3,7 +3,7 @@ import Box from '@mui/material/Box'
 import Breadcrumbs from '@mui/material/Breadcrumbs'
 import Link from '@mui/material/Link'
 
-import CytographProps from '../props/cytograph_props'
+import CytographMasterProps from '../props/cytograph_master_props'
 import Presets from './presetGraphs'
 import Algorithm from './algorithm'
 import CytographEditAdd from './edit/add'
@@ -12,7 +12,7 @@ import CytographEditDelete from './edit/delete'
 
 interface EditRenderProps {
     graphState: string,
-    CytographProps: CytographProps
+    CytographProps: CytographMasterProps
 }
 
 const EditRender = (props : EditRenderProps) => {
@@ -20,7 +20,7 @@ const EditRender = (props : EditRenderProps) => {
         return <Presets setNodes={props.CytographProps.setNodes} setEdges={props.CytographProps.setEdges}/>
     } 
     if (props.graphState === "algo") {
-        return <Algorithm nodes={props.CytographProps.nodes} edges={props.CytographProps.edges} setNodes={props.CytographProps.setNodes} setEdges={props.CytographProps.setEdges}/>
+        return <Algorithm nodes={props.CytographProps.nodes} edges={props.CytographProps.edges} distance={props.CytographProps.distance} previous={props.CytographProps.previous} setNodes={props.CytographProps.setNodes} setEdges={props.CytographProps.setEdges} setDistance={props.CytographProps.setDistance} setPrevious={props.CytographProps.setPrevious}/>
     } 
     if (props.graphState === "add") {
         return <CytographEditAdd nodes={props.CytographProps.nodes} edges={props.CytographProps.edges} setNodes={props.CytographProps.setNodes} setEdges={props.CytographProps.setEdges}/>
@@ -42,7 +42,7 @@ const activeStyle = (component: string, state: string) => {
     }
 }
 
-export default function CytographRender(props: CytographProps) {
+export default function CytographRender(props: CytographMasterProps) {
     const [graphState, setGraphState] = useState<string>("preset") 
     return (
         <div className="cytograph-edit">
