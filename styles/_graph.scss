@@ -61,7 +61,6 @@
                         }
                     }
                 }
-                
                 .cytograph-edit-update {
                     .form {
                         .node {
@@ -84,6 +83,11 @@
                 }
                 .cytograph-edit-delete {
                     .form {
+                        .deleteAll {
+                            margin: 0 auto;
+                            display: block;
+                            margin-bottom: 12px;
+                        }
                         .node {
                             .button {
                                 margin-top: 12px;
@@ -98,6 +102,7 @@
                     }
                 }
             }
+
         }
     }
 }

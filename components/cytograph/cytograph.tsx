@@ -1,4 +1,5 @@
 import dynamic from 'next/dynamic';
+import { useEffect } from 'react';
 import CytographProps from '../props/cytograph_readonly_props'
 const CytoscapeComponent = dynamic(() => import('react-cytoscapejs'), {
   ssr: false,
@@ -6,6 +7,7 @@ const CytoscapeComponent = dynamic(() => import('react-cytoscapejs'), {
 
 export default function cytograph(props: CytographProps) {
   let passedElements = [...props.nodes, ...props.edges]
+  useEffect(()=>{console.log(passedElements)},[])
   return (
     <CytoscapeComponent
       className='cytoscape-graph'

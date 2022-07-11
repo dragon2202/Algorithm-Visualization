@@ -1,5 +1,12 @@
+import {useEffect, useState} from 'react'
 import Box from '@mui/material/Box'
+import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
+import Divider from '@mui/material/Divider'
+import Select, { SelectChangeEvent } from '@mui/material/Select'
+import InputLabel from '@mui/material/InputLabel'
+import MenuItem from '@mui/material/MenuItem'
+import { FormControl } from '@mui/material'
 
 interface Cytograph {
     setNodes: (value: any) => void
@@ -51,7 +58,7 @@ const array = [
             { data: { source: '2', target: '3', label: 'B to C', weight: '5' } },
             { data: { source: '2', target: '4', label: 'B to D', weight: '2' } },
             { data: { source: '2', target: '5', label: 'B to E', weight: '2' } },
-            
+
             { data: { source: '3', target: '5', label: 'C to E', weight: '5' } },
             { data: { source: '4', target: '5', label: 'D to E', weight: '1' } },
         ]
@@ -59,14 +66,25 @@ const array = [
 ]
 
 export default function Presets(props: Cytograph) {
-    async function test () {
-        props.setNodes(array[0].node)
-        props.setEdges(array[0].edges)
-    }
+    const [value, setValue] = useState<number>(0)
+    useEffect(() => {
+        if(value !== 0) {
+            props.setNodes(array[value - 1].node)
+            props.setEdges(array[value - 1].edges)
+        }
+    },[value])
+
     return (
         <div className="cytograph-presets">
-            <Box className="two_nodes" >
-                <Button variant="contained" className="button" onClick={() => {test()}}> Submit</Button>
+            <Box className="box">
+                <FormControl fullWidth className="select" sx={{marginTop: '12px'}}>
+                    <InputLabel>Preset Graph</InputLabel>
+                    <Select value={value.toString()} label={"Preset Graph"} onChange={(event: SelectChangeEvent) => {setValue(parseInt(event.target.value))}}>
+                        <MenuItem value={0} key={0}>None</MenuItem>
+                        <MenuItem value={1} key={1}>First Graph</MenuItem>
+                        <MenuItem value={2} key={2}>Second Graph</MenuItem>
+                    </Select>
+                </FormControl>
             </Box>
         </div>
     )

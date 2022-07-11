@@ -31,9 +31,9 @@ import CytographRender from '../components/cytograph/cytograph-render'
 
 const Graph: NextPage = () => {
   const [nodes, setNodes] = useState([
-    { data: { id: '1', label: 'Node 1' }, position: { x: 50, y: 50 } },
-    { data: { id: '2', label: 'Node 2' }, position: { x: 150, y: 50 } },
-    { data: { id: '3', label: 'Node 3' }, position: { x: 250, y: 50 } }
+    { data: { id: '1', label: '1' }, position: { x: 50, y: 50 } },
+    { data: { id: '2', label: '2' }, position: { x: 150, y: 50 } },
+    { data: { id: '3', label: '3' }, position: { x: 250, y: 50 } }
   ])
 
   const [edges, setEdges] = useState([
@@ -49,7 +49,7 @@ const Graph: NextPage = () => {
     if (previous.length !== 0) {
       for(var i = 1; i < nodes.length; i++) {
         if(previous[i] !== null) {
-          const edge = edges.find((item) => (item.data.source === nodes[i].data.id && item.data.target === previous[i].toString()) || (item.data.source === previous[i].toString() && item.data.target === nodes[i].data.id))
+          let edge: any = edges.find((item) => (item.data.source === nodes[i].data.id && item.data.target === previous[i].toString()) || (item.data.source === previous[i].toString() && item.data.target === nodes[i].data.id))
           newEdges.push(edge)
         }
       }
