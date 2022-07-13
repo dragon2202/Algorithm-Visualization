@@ -7,7 +7,6 @@ const CytoscapeComponent = dynamic(() => import('react-cytoscapejs'), {
 
 export default function cytograph(props: CytographProps) {
   let passedElements = [...props.nodes, ...props.edges]
-  useEffect(()=>{console.log(passedElements)},[])
   return (
     <CytoscapeComponent
       className='cytoscape-graph'

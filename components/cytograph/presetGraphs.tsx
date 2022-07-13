@@ -69,6 +69,9 @@ export default function Presets(props: Cytograph) {
     const [value, setValue] = useState<number>(0)
     useEffect(() => {
         if(value !== 0) {
+            //nodes might be misplaced if you don't set empty arrays and than filling it
+            props.setNodes([])
+            props.setEdges([])
             props.setNodes(array[value - 1].node)
             props.setEdges(array[value - 1].edges)
         }
