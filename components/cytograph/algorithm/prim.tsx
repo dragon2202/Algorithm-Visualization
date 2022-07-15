@@ -4,7 +4,8 @@ export default function Prim (props: CytographProps) {
     let visited: any = []//keep track of visited nodes to prevent cycles
     visited.push(props.nodes[0].data.id)
     let MinimumSpanningTree_Edges: any = []
-    for (let i = 0; i < 3; i++) {
+
+    for (let i = 0; i < props.nodes.length; i++) {
         let edgesToBeConsidered: any = []
         for (let j = 0; j < visited.length; j++) {
             const edgesConnected = props.edges.filter((item: any) => item.data.source === visited[j] || item.data.target === visited[j])
