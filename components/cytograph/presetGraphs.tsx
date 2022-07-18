@@ -1,8 +1,5 @@
 import {useEffect, useState} from 'react'
 import Box from '@mui/material/Box'
-import TextField from '@mui/material/TextField'
-import Button from '@mui/material/Button'
-import Divider from '@mui/material/Divider'
 import Select, { SelectChangeEvent } from '@mui/material/Select'
 import InputLabel from '@mui/material/InputLabel'
 import MenuItem from '@mui/material/MenuItem'
@@ -71,17 +68,34 @@ const array = [
             { data: { source: '1', target: '2', label: 'A to B', weight: '2' } },
             { data: { source: '1', target: '3', label: 'A to C', weight: '3' } },
             { data: { source: '1', target: '4', label: 'A to D', weight: '3' } },
-
             { data: { source: '2', target: '3', label: 'B to C', weight: '4' } },
             { data: { source: '2', target: '5', label: 'B to E', weight: '3' } },
-
             { data: { source: '3', target: '5', label: 'C to E', weight: '1' } },
             { data: { source: '3', target: '6', label: 'C to F', weight: '6' } },
-
             { data: { source: '4', target: '6', label: 'D to F', weight: '7' } },
-
             { data: { source: '5', target: '6', label: 'E to F', weight: '8' } },
             { data: { source: '6', target: '7', label: 'F to G', weight: '9' } },
+        ]
+    },
+    {
+        node: [
+            { data: { id: '1', label: 'A' }, position: { x: 200, y: 100 } },
+            { data: { id: '2', label: 'B' }, position: { x: 200, y: 250 } },
+            { data: { id: '3', label: 'C' }, position: { x: 300, y: 175 } },
+            { data: { id: '4', label: 'D' }, position: { x: 400, y: 100 } },
+            { data: { id: '5', label: 'E' }, position: { x: 400, y: 250 } },
+            { data: { id: '6', label: 'F' }, position: { x: 500, y: 175 } },
+        ],
+        edges: [
+            { data: { source: '1', target: '2', label: 'A to B', weight: '4' } },
+            { data: { source: '1', target: '3', label: 'A to C', weight: '4' } },
+            { data: { source: '2', target: '3', label: 'B to C', weight: '2' } },
+            { data: { source: '3', target: '4', label: 'C to D', weight: '3' } },
+            { data: { source: '3', target: '5', label: 'C to E', weight: '2' } },
+            { data: { source: '3', target: '6', label: 'C to F', weight: '4' } },
+            { data: { source: '4', target: '6', label: 'D to F', weight: '3' } },
+            { data: { source: '5', target: '6', label: 'E to F', weight: '4' } },
+            
         ]
     }
 ]
@@ -105,9 +119,10 @@ export default function Presets(props: Cytograph) {
                     <InputLabel>Preset Graph</InputLabel>
                     <Select value={value.toString()} label={"Preset Graph"} onChange={(event: SelectChangeEvent) => {setValue(parseInt(event.target.value))}}>
                         <MenuItem value={0} key={0}>None</MenuItem>
-                        <MenuItem value={1} key={1}>First Graph</MenuItem>
-                        <MenuItem value={2} key={2}>Second Graph</MenuItem>
-                        <MenuItem value={3} key={3}>Third Graph</MenuItem>
+                        <MenuItem value={1} key={1}>Dijkstra Graph</MenuItem>
+                        <MenuItem value={2} key={2}>Dijkstra Graph 2</MenuItem>
+                        <MenuItem value={3} key={3}>Prim Graph</MenuItem>
+                        <MenuItem value={4} key={4}>Prim Graph 2</MenuItem>
                     </Select>
                 </FormControl>
             </Box>
