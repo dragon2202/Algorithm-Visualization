@@ -13,22 +13,6 @@ import { GraphInfo } from '../components/text/graph-info-text'
 import Cytograph from '../components/cytograph/cytograph'
 import CytographRender from '../components/cytograph/cytograph-render'
 
-/* 
-  let edges: any[] = []
-
-  useEffect(() => {
-    if (props.previous.length !== 0) {
-      for(var i = 1; i < props.nodes.length; i++) {
-        //const edge = props.edges.find((item) => (item.data.source === props.nodes[i].data.id && item.data.target === props.previous[i]) || (item.data.source === props.previous[i] && item.data.target === props.nodes[i].data.id))
-        const edge = props.edges.find((item) => (item.data.source === props.nodes[i].data.id && item.data.target === props.previous[i].toString()) || (item.data.source === props.previous[i].toString() && item.data.target === props.nodes[i].data.id))
-        edges.push(edge)
-      }
-      setPassedElements([...props.nodes, ...edges])
-    }
-  },[props.previous])
-
-*/
-
 const Graph: NextPage = () => {
   const [nodes, setNodes] = useState([
     { data: { id: '1', label: '1' }, position: { x: 50, y: 50 } },

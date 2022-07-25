@@ -10,8 +10,8 @@
         margin-top: 20px;
 
         .display {
+            margin-left: 12px;
             width: 800px;
-
             .cytoscape-graph {
                 height: 500px;
             }
@@ -20,6 +20,7 @@
         .update {
             width: 400px;
             margin-left: 12px;
+            margin-right: 12px;
             .cytograph-edit {
                 .button_group {
                     display: flex;
@@ -103,6 +104,9 @@
                 }
             }
             .cytograph-algo {
+                .checkbox {
+                    margin-bottom: 20px;
+                }
                 .two_nodes {
                     display: flex;
                     flex-direction: column;
@@ -112,7 +116,25 @@
                     .reset-button {
                         margin-bottom: 20px;
                     }
+                    .dijkstra {
+                        margin-bottom: 20px;
+                    }
                 }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1240px){
+    .graph {
+        .content {
+            max-width: 1100px;
+            .display {
+                width: 750px;
+            }
+            .update {
+                width: 350px;
+                margin-left: 12px;
             }
         }
     }

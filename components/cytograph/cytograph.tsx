@@ -1,5 +1,4 @@
 import dynamic from 'next/dynamic';
-import { useEffect } from 'react';
 import CytographProps from '../props/cytograph_readonly_props'
 const CytoscapeComponent = dynamic(() => import('react-cytoscapejs'), {
   ssr: false,
