@@ -8,7 +8,7 @@ import InputLabel from '@mui/material/InputLabel'
 import MenuItem from '@mui/material/MenuItem'
 import { FormControl } from '@mui/material'
 
-import CytographProps from '../../props/cytograph_props'
+import CytographProps from '../props/cytograph_props'
 
 export default function CytographEditAdd(props: CytographProps) {
     const [selectedNode, setSelectedNode] = useState<string>('')

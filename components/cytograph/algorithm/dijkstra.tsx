@@ -1,4 +1,4 @@
-import CytographProps from '../../props/cytograph_master_props'
+import CytographProps from '../props/cytograph_master_props'
 
 export default function Dijkstra(props: CytographProps) {
     let unvisited = props.nodes.map(item => item.data.id)

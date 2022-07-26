@@ -4,7 +4,7 @@ import ButtonGroup from '@mui/material/ButtonGroup'
 
 import Dikjstra from './algorithm/dijkstra'
 import Prim from './algorithm/prim'
-import CytographProps from '../props/cytograph_master_props'
+import CytographProps from './props/cytograph_master_props'
 import { useEffect, useState } from 'react'
 
 export default function Algorithm(props: CytographProps) {

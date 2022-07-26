@@ -3,7 +3,7 @@ import Box from '@mui/material/Box'
 import Breadcrumbs from '@mui/material/Breadcrumbs'
 import Link from '@mui/material/Link'
 
-import CytographMasterProps from '../props/cytograph_master_props'
+import CytographMasterProps from './props/cytograph_master_props'
 import Presets from './presetGraphs'
 import Algorithm from './algorithm'
 import CytographEditAdd from './edit/add'

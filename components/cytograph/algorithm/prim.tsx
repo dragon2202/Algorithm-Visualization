@@ -1,5 +1,5 @@
 import { InsertEmoticon } from '@mui/icons-material'
-import CytographProps from '../../props/cytograph_master_props'
+import CytographProps from '../props/cytograph_master_props'
 
 export default function Prim (props: CytographProps) {
     let visited: any = []//keep track of visited nodes to prevent cycles

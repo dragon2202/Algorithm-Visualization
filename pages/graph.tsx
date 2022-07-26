@@ -9,7 +9,7 @@ import CardContent from '@mui/material/CardContent'
 import Tooltip from '@mui/material/Tooltip'
 import Button from '@mui/material/Button'
 
-import { GraphInfo } from '../components/text/graph-info-text'
+import { GraphInfo } from '../components/cytograph/text/graph-info-text'
 import Cytograph from '../components/cytograph/cytograph'
 import CytographRender from '../components/cytograph/cytograph-render'
 

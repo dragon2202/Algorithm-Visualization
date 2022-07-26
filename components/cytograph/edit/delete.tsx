@@ -1,4 +1,4 @@
-import CytographProps from '../../props/cytograph_props'
+import CytographProps from '../props/cytograph_props'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Select from '@mui/material/Select'

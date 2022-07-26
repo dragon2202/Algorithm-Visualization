@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import CytographProps from '../../props/cytograph_props'
+import CytographProps from '../props/cytograph_props'
 import Box from '@mui/material/Box'
 import Select from '@mui/material/Select'
 import InputLabel from '@mui/material/InputLabel'

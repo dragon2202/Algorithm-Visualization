@@ -12,6 +12,9 @@ export default function Navigation() {
                 <Link underline="hover" color="inherit" href={"/graph"}>
                     Graph
                 </Link>
+                <Link underline="hover" color="inherit" href={"/datastructures"}>
+                    Data Structures
+                </Link>
             </Breadcrumbs>
         </div>
     )
