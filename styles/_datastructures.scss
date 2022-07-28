@@ -2,9 +2,18 @@
     .header {
         margin-left: 20px;
     }
-    .card {
+    .stack {
         margin: 0 auto;
         max-width: 720px;
         margin-top: 20px;
+        .buttongroup {
+            box-shadow: none;
+            .push {
+                margin-bottom: 12px;
+            }
+            .pop {
+                margin-bottom: 12px;
+            }
+        }
     }
 }

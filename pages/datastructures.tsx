@@ -4,12 +4,6 @@ import Navigation from '../components/navigation'
 
 import Stack from '../components/chart/stack'
 
-import Card from '@mui/material/Card'
-import CardActions from '@mui/material/CardActions'
-import CardContent from '@mui/material/CardContent'
-import Button from '@mui/material/Button'
-import Typography from '@mui/material/Typography'
-
 const DataStructures: NextPage = () => {
     return (
         <div>
@@ -21,9 +15,7 @@ const DataStructures: NextPage = () => {
             <main className='dataStructures'>
                 <h3 className='header'>Data Structures</h3>
                 <Navigation />
-                <Card className="card">
-                    <Stack />
-                </Card>
+                <Stack />
             </main>
         </div>
     )
