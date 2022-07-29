@@ -6,13 +6,30 @@
         margin: 0 auto;
         max-width: 720px;
         margin-top: 20px;
-        .buttongroup {
-            box-shadow: none;
-            .push {
-                margin-bottom: 12px;
+        .button-text {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 24px;
+            .buttongroup {
+                box-shadow: none;
+                margin-right: 6px;
+                .push {
+                    margin-bottom: 12px;
+                }
+                .pop {
+                    margin-bottom: 12px;
+                }
+                .peek {
+                    margin-bottom: 12px;
+                }
+                .isFull {
+                    margin-bottom: 12px;
+                }
             }
-            .pop {
-                margin-bottom: 12px;
+            .text {
+                margin-left: 6px;
+                height: auto;
+                max-width: 375px;
             }
         }
     }
