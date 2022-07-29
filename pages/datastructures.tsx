@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Navigation from '../components/navigation'
 
 import Stack from '../components/chart/stack'
+import Queue from '../components/chart/queue'
 
 const DataStructures: NextPage = () => {
     return (
@@ -15,7 +16,10 @@ const DataStructures: NextPage = () => {
             <main className='dataStructures'>
                 <h3 className='header'>Data Structures</h3>
                 <Navigation />
-                <Stack />
+                <div className="stack_queue">
+                    <Stack />
+                    <Queue />
+                </div>
             </main>
         </div>
     )

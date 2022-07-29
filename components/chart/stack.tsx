@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { Bar } from 'react-chartjs-2';
-import { Chart, Tooltip, CategoryScale, LinearScale, Title, BarElement } from 'chart.js';
+import { Bar } from 'react-chartjs-2'
+import { Chart, Tooltip, CategoryScale, LinearScale, Title, BarElement } from 'chart.js'
 Chart.register(Tooltip, CategoryScale, LinearScale, Title, BarElement)
 
 import Box from '@mui/material/Box'
@@ -83,7 +83,9 @@ export default function Stack() {
     return (
         <div className="stack">
             <Card>
-                <Bar data={{ labels: ['Stack'], datasets: [...dataSets] }}
+                <Bar 
+                    className='bar'
+                    data={{ labels: ['Stack'], datasets: [...dataSets] }}
                     options={{
                         plugins: {
                             title: {
