@@ -59,7 +59,6 @@ function isFull(dataSets: Array<any>) {
     }
     toast("Stack still has space for " + (arraySize - dataSets.length) + " item(s)")
 }
-
 //isEmpty function checks if stack is empty
 function isEmpty(dataSets: Array<any>) {
     if (dataSets.length === 0) {

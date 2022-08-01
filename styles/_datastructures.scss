@@ -45,6 +45,32 @@
             .bar {
                 width: 500px;
             }
+            .button-text {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 24px;
+                .buttongroup {
+                    box-shadow: none;
+                    margin-right: 6px;
+                    .enqueue {
+                        margin-bottom: 12px;
+                    }
+                    .dequeue {
+                        margin-bottom: 12px;
+                    }
+                    .peek {
+                        margin-bottom: 12px;
+                    }
+                    .isFull {
+                        margin-bottom: 12px;
+                    }
+                }
+                .text {
+                    margin-left: 6px;
+                    height: auto;
+                    max-width: 375px;
+                }
+            }
         }
     }
     
