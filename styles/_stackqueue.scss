@@ -1,0 +1,77 @@
+.stackqueue {
+    .header {
+        margin-left: 20px;
+    }
+    .stack_queue {
+        display: flex;
+        .stack {
+            margin: 0 auto;
+            margin-right: 24px;
+            margin-top: 20px;
+            .bar {
+                width: 500px;
+            }
+            .button-text {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 24px;
+                .buttongroup {
+                    box-shadow: none;
+                    margin-right: 6px;
+                    .push {
+                        margin-bottom: 12px;
+                    }
+                    .pop {
+                        margin-bottom: 12px;
+                    }
+                    .peek {
+                        margin-bottom: 12px;
+                    }
+                    .isFull {
+                        margin-bottom: 12px;
+                    }
+                }
+                .text {
+                    margin-left: 6px;
+                    height: auto;
+                    max-width: 375px;
+                }
+            }
+        }
+        .queue {
+            margin: 0 auto;
+            margin-left: 24px;
+            margin-top: 20px;
+            .bar {
+                width: 500px;
+            }
+            .button-text {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 24px;
+                .buttongroup {
+                    box-shadow: none;
+                    margin-right: 6px;
+                    .enqueue {
+                        margin-bottom: 12px;
+                    }
+                    .dequeue {
+                        margin-bottom: 12px;
+                    }
+                    .peek {
+                        margin-bottom: 12px;
+                    }
+                    .isFull {
+                        margin-bottom: 12px;
+                    }
+                }
+                .text {
+                    margin-left: 6px;
+                    height: auto;
+                    max-width: 375px;
+                }
+            }
+        }
+    }
+    
+}

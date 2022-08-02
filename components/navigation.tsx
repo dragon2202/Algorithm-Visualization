@@ -5,12 +5,15 @@ import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
 
 const options = [
-  'None',
-  'Atria'
+    {
+        name: 'Stack & Queue',
+        link: 'stackqueue'
+    },
+    {
+        name: 'Hashtable',
+        link: 'hashtable'
+    }
 ];
-
-const ITEM_HEIGHT = 48;
-
 export default function Navigation() {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl)
@@ -27,9 +30,11 @@ export default function Navigation() {
                     Data Structures
                 </Link>
                 <Menu open={open} onClose={() => setAnchorEl(null)} anchorEl={anchorEl} sx={{marginTop: '2px'}}>
-                    {options.map((option) => (
-                        <MenuItem key={option} selected={option === 'Pyxis'} onClick={() => setAnchorEl(null)}>
-                            {option}
+                    {options.map((option, index) => (
+                        <MenuItem key={index} onClick={() => setAnchorEl(null)}>
+                            <Link underline="hover" color="inherit" href={"/" + option.link}>
+                                {option.name}
+                            </Link>
                         </MenuItem>
                     ))}
                 </Menu>
