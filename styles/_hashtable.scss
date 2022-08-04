@@ -11,8 +11,28 @@
         margin-bottom: 20px;
     }
 
-    .buttongroup {
-        margin: 0 auto;
+    .functions {
         display: flex;
+        margin: 0 auto;
+        justify-content: center;
+        .box {
+            background-color: rgb(239, 239, 239);
+            padding-top: 6px;
+            padding-left: 12px;
+            padding-right: 12px;
+            padding-bottom: 6px;
+            .setForm {
+                display: table;
+                .key {
+                    margin-right: 8px;
+                }
+                .value {
+                    margin-right: 8px;
+                }
+                .button {
+                    margin-top: 6px;
+                }
+            }
+        }
     }
 }
