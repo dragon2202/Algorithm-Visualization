@@ -92,7 +92,7 @@ export default function Queue() {
                         plugins: {
                             title: {
                                 display: true,
-                                text: 'Items in a Queue',
+                                text: 'Queue',
                             },
                             legend: {
                                 display: true,

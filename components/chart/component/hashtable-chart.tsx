@@ -38,11 +38,12 @@ export default function HashtableChart(props: ChartProps) {
                         plugins: {
                             title: {
                                 display: true,
-                                text: 'Items in a Queue',
+                                text: 'Hashtable',
                             },
                             legend: {
-                                display: true,
-                                position: 'right'
+                                display: false,
+                                position: 'top',
+                                align: 'center',
                             },
 
                         },

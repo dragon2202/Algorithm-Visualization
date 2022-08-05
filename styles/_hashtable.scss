@@ -7,8 +7,10 @@
         width: 800px;
         margin: 0 auto;
         display: flex;
-        margin-top: 20px;
-        margin-bottom: 20px;
+        margin-top: 16px;
+        margin-bottom: 16px;
+        padding-left: 4px;
+        padding-right: 4px;
     }
 
     .functions {
@@ -23,6 +25,12 @@
             padding-bottom: 6px;
             .setForm {
                 display: table;
+                margin-bottom: 4px;
+                .header{
+                    margin-top: 4px;
+                    margin-bottom: 0px;
+                    margin-left: 0px;
+                }
                 .key {
                     margin-right: 8px;
                 }
@@ -30,7 +38,47 @@
                     margin-right: 8px;
                 }
                 .button {
-                    margin-top: 6px;
+                    margin-top: 12px;
+                }
+            }
+            .getForm {
+                display: table;
+                .header{
+                    margin-top: 4px;
+                    margin-bottom: 0px;
+                    margin-left: 0px;
+                }
+                .get {
+                    margin-right: 6px;
+                }
+                .button {
+                    margin-top: 12px;
+                }
+            }
+            .deleteForm {
+                display: table;
+                .header{
+                    margin-top: 4px;
+                    margin-bottom: 0px;
+                    margin-left: 0px;
+                }
+                .delete {
+                    margin-right: 6px;
+                }
+                .button {
+                    margin-top: 12px;
+                }
+            }
+            
+            .deleteAllForm {
+                display: table;
+                .header{
+                    margin-top: 4px;
+                    margin-bottom: 0px;
+                    margin-left: 0px;
+                }
+                .button {
+                    margin-top: 12px;
                 }
             }
         }

@@ -20,7 +20,7 @@ const style = {
     border: '2px solid #000',
     boxShadow: 24,
     p: 4,
-  };
+};
 
 export default function CytographEditDelete(props: CytographProps) {
     const [open, setOpen] = useState(false)

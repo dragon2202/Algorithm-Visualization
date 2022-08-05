@@ -89,7 +89,7 @@ export default function Stack() {
                         plugins: {
                             title: {
                                 display: true,
-                                text: 'Items in a Stack',
+                                text: 'Stack',
                             },
                             legend: {
                                 display: true,
