@@ -4,18 +4,13 @@ import { Chart, Tooltip, CategoryScale, LinearScale, Title, BarElement } from 'c
 Chart.register(Tooltip, CategoryScale, LinearScale, Title, BarElement)
 
 import Box from '@mui/material/Box'
-import CardContent from '@mui/material/CardContent'
-import CardActions from '@mui/material/CardActions'
 import Typography from '@mui/material/Typography'
 import { ToastContainer, toast } from 'react-toastify'
-import { queueText } from './text/queue-text'
 import HashtableChart from './component/hashtable-chart'
 import Button from '@mui/material/Button'
-import ButtonGroup from '@mui/material/ButtonGroup'
-import Card from '@mui/material/Card'
-import FormControl from '@mui/material/FormControl'
 import TextField from '@mui/material/TextField'
 import Modal from '@mui/material/Modal'
+import { HashtableTooltip } from './component/tooltip'
 
 const style = {
     position: 'absolute' as 'absolute',
@@ -78,7 +73,6 @@ export default function HashtableComponent() {
         const indexOfItem = newArray.findIndex((item) => item.key === key)
         newArray[indexOfItem].value = value
         newArray[indexOfItem].label = "[Key: " + key + ", Value: " + value.toString() + "]"
-        console.log()
         setDataSets(newArray)
     }
 
@@ -154,6 +148,7 @@ export default function HashtableComponent() {
     return (
         <div>
             <HashtableChart arrayLength={arrayLength} dataSets={dataSets} />
+                <HashtableTooltip/>
             <div className="functions">
                 <Box className="box">
                     <form onSubmit={(event) => { event.preventDefault(); set(setValue.key, setValue.value)}} className="setForm">

@@ -12,13 +12,17 @@ const options = [
     {
         name: 'Hashtable',
         link: 'hashtable'
+    },
+    {
+        name: 'Tree',
+        link: 'tree'
     }
 ];
 export default function Navigation() {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl)
     return (
-        <div role="presentation" style={{ display: "table", margin: '0 auto' }}>
+        <div role="presentation" style={{ display: "table", margin: '0 auto' }} className="navigation">
             <Breadcrumbs aria-label="breadcrumb">
                 <Link underline="hover" color="inherit" href={"/"}>
                     Home

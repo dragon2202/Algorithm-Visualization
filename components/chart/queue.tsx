@@ -11,7 +11,7 @@ import Button from '@mui/material/Button'
 import ButtonGroup from '@mui/material/ButtonGroup'
 import Typography from '@mui/material/Typography'
 import { ToastContainer, toast } from 'react-toastify'
-import { queueText } from './text/queue-text'
+import { queueText } from './text/text'
 
 const arraySize = 7 //enforces a size limit, js array don't have a space limit
 const colors = ['rgba(75,192,192,1)', 'rgb(52, 86, 139)', 'rgb(255, 111, 97)', 'rgb(107, 91, 149)', 'rgb(136, 176, 75)', 'rgb(247, 202, 201)', 'rgb(146, 168, 209)']

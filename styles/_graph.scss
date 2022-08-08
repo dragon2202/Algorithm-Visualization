@@ -142,12 +142,51 @@
 @media screen and (max-width: 1100px){
     .graph {
         .content {
-            max-width: 1000px;
+            display: table;
+            margin: 0 auto;
+            justify-content: center;
+            max-width: 900px;
+            margin-top: 12px;
             .display {
+                height: 500px;
                 width: 700px;
             }
             .update {
+                display: flex;
+                margin: 0 auto;
+                justify-content: center;
+                margin-top: 12px;
                 width: 300px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 800px){
+    .graph {
+        .content {
+            .display {
+                width: 600px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 700px){
+    .graph {
+        .content {
+            .display {
+                width: 500px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px){
+    .graph {
+        .content {
+            .display {
+                width: 400px;
             }
         }
     }

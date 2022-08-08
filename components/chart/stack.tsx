@@ -11,7 +11,7 @@ import Button from '@mui/material/Button'
 import ButtonGroup from '@mui/material/ButtonGroup'
 import Typography from '@mui/material/Typography'
 import { ToastContainer, toast } from 'react-toastify'
-import { stackText } from './text/stack-text'
+import { stackText } from './text/text'
 
 const arraySize = 7 //enforces a size limit, js array don't have a space limit
 
