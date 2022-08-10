@@ -10,7 +10,7 @@ interface Cytograph {
     setEdges: (value: any) => void
 }
 
-const array = [
+const graph = [
     {
         node: [
             { data: { id: '1', label: 'A' }, position: { x: 350, y: 125 } },
@@ -107,8 +107,8 @@ export default function Presets(props: Cytograph) {
             //nodes might be misplaced if you don't set empty arrays and than filling it
             props.setNodes([])
             props.setEdges([])
-            props.setNodes(array[value - 1].node)
-            props.setEdges(array[value - 1].edges)
+            props.setNodes(graph[value - 1].node)
+            props.setEdges(graph[value - 1].edges)
         }
     },[value])
 

@@ -6,11 +6,49 @@
     .navigation {
         padding-bottom: 12px;
     }
-    .tree-card {
+    .tree-card_functions {
         display: flex;
         margin: 0 auto;
         justify-content: center;
-        width: 900px;
-        height: 600px;
+        .tree-card {
+            margin-right: 12px;
+            width: 900px;
+            height: 600px;
+        }
+        .preset-tree {
+            .card {
+                width: 300px;
+                .box {
+                    .header-4{
+                        margin-top: 0px;
+                    }
+                    .algorithm {
+                        .header-4{
+                            margin-top: 4px;
+                            margin-bottom: 8px;
+                        }
+                        .buttongroup{
+                            box-shadow: none;
+                            margin-top: 6px;
+                            display: flex;
+                            margin: 0 auto;
+                            justify-content: center; 
+                            .preorder {
+                                margin-bottom: 6px;
+                            }
+                            .inorder {
+                                margin-bottom: 6px;
+                            }
+                            .postorder {
+                                margin-bottom: 6px;
+                            }
+                            .clear {
+                                margin-bottom: 6px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }

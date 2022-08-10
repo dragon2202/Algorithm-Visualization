@@ -1,50 +1,27 @@
 import type { NextPage } from 'next'
-import dynamic from 'next/dynamic';
+import dynamic from 'next/dynamic'
 import Head from 'next/head'
+import { useState } from 'react'
 import Navigation from '../components/navigation'
 import Card from '@mui/material/Card'
+import Preset from '../components/tree/presetTree'
 
 const Tree = dynamic(() => import('react-d3-tree'), {
     ssr: false,
 })
 
-const orgChart = {
-    name: 'CEO',
-    children: [
-      {
-        name: 'Manager',
-        attributes: {
-          department: 'Production',
-        },
-        children: [
-          {
-            name: 'Foreman',
-            attributes: {
-              department: 'Fabrication',
-            },
-            children: [
-              {
-                name: 'Worker',
-              },
-            ],
-          },
-          {
-            name: 'Foreman',
-            attributes: {
-              department: 'Assembly',
-            },
-            children: [
-              {
-                name: 'Worker',
-              },
-            ],
-          },
-        ],
-      },
-    ],
-  }
+interface treeObject {
+  name: string,
+  children: Array<any>
+}
+
+const starterTree = {
+  name: 'StarterNode',
+  children: []
+}
 
 const Trie: NextPage = () => {
+    const [treeData, setTreeData] = useState<treeObject>(starterTree)
     return (
         <div>
             <Head>
@@ -55,9 +32,12 @@ const Trie: NextPage = () => {
             <main className='trie'>
                 <h3 className='header'>Tree</h3>
                 <Navigation />
-                <Card className="tree-card">
-                    <Tree data={orgChart} orientation="vertical" pathFunc={'step'} translate={{ x:450, y: 50 }}/>
-                </Card>
+                <div className="tree-card_functions">
+                  <Card className="tree-card">
+                      <Tree data={treeData} orientation="vertical" pathFunc={'straight'} translate={{ x:450, y: 50 }} nodeSize={{x: 80, y: 70}}/>
+                  </Card>
+                  <Preset treeData={treeData} setTreeData={setTreeData}/>
+                </div>
             </main>
         </div>
     )
