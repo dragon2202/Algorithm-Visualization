@@ -15,10 +15,10 @@
             width: 900px;
             height: 600px;
         }
-        .preset-tree {
+        .tree-functions {
             .card {
                 width: 300px;
-                .box {
+                .preset-box {
                     .header-4{
                         margin-top: 0px;
                     }
@@ -46,6 +46,14 @@
                                 margin-bottom: 6px;
                             }
                         }
+                    }
+                }
+                .tree-edit-box {
+                    .header-4 {
+                        margin-top: 0px;
+                    }
+                    .text-field {
+                        margin-top: 0px;
                     }
                 }
             }

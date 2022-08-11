@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { useState } from 'react'
 import Navigation from '../components/navigation'
 import Card from '@mui/material/Card'
-import Preset from '../components/tree/presetTree'
+import TreeRender from '../components/tree/tree-render'
 
 const Tree = dynamic(() => import('react-d3-tree'), {
     ssr: false,
@@ -22,6 +22,7 @@ const starterTree = {
 
 const Trie: NextPage = () => {
     const [treeData, setTreeData] = useState<treeObject>(starterTree)
+    const [nodeList, setNodeList] = useState<Array<string>>([])
     return (
         <div>
             <Head>
@@ -36,7 +37,7 @@ const Trie: NextPage = () => {
                   <Card className="tree-card">
                       <Tree data={treeData} orientation="vertical" pathFunc={'straight'} translate={{ x:450, y: 50 }} nodeSize={{x: 80, y: 70}}/>
                   </Card>
-                  <Preset treeData={treeData} setTreeData={setTreeData}/>
+                  <TreeRender treeData={treeData} setTreeData={setTreeData} nodeList={nodeList} setNodeList={setNodeList}/>
                 </div>
             </main>
         </div>

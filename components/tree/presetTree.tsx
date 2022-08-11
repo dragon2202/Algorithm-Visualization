@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react'
 import Box from '@mui/material/Box'
-import Card from '@mui/material/Card'
-import CardContent from '@mui/material/CardContent'
 import Select, { SelectChangeEvent } from '@mui/material/Select'
 import InputLabel from '@mui/material/InputLabel'
 import MenuItem from '@mui/material/MenuItem'
@@ -15,9 +13,12 @@ interface treeObject {
     children: Array<any>
 }
 //Defined Tree Props passed to this component
-interface Tree {
-    treeData: treeObject
-    setTreeData: (value: any) => void
+interface TreeProps {
+    treeData: treeObject, 
+    setTreeData: (value: any) => void, 
+    setNodeList: (value: any) => void, 
+    value: string, 
+    setValue: (value: string) => void
 }
 //Preset Tree Data
 const tree = [
@@ -26,7 +27,7 @@ const tree = [
         name: '10',
         children: [
             {
-                name:'7',
+                name: '7',
                 children: [
                     {
                         name: '6',
@@ -51,7 +52,7 @@ const tree = [
                 ]
             },
             {
-                name:'11',
+                name: '11',
                 children: [
                     {},
                     {
@@ -140,33 +141,33 @@ const tree = [
     }
 ]
 
-export default function Presets(props: Tree) {
-    const [value, setValue] = useState<string>('0')
+const nodeList = [
+    [],
+    ["1", "6", "7", "8", "9", "10", "11", "20", "14", "22"],
+    ["4", "10", "12", "15", "22", "18", "24", "25", "31", "35", "44", "50", "66", "70", "90"]
+]
+
+export default function Presets(props: TreeProps) {
     useEffect(() => {
-        const num = parseInt(value)
+        const num = parseInt(props.value)
         props.setTreeData(tree[num])
-    },[value])
+        props.setNodeList(nodeList[num])
+    }, [props.value])
     return (
-        <div className="preset-tree">
-            <Card className="card"> 
-                <CardContent>
-                    <Box className="box">
-                        <h4 className="header-4">Preset Binary</h4>
-                        <FormControl fullWidth className="select-form">
-                            <InputLabel>
-                                Preset
-                            </InputLabel>
-                            <Select className='select' value={value} label="tree" onChange={(event: SelectChangeEvent) => setValue(event.target.value as string)}>
-                                <MenuItem value={0}>None</MenuItem>
-                                <MenuItem value={1}>First</MenuItem>
-                                <MenuItem value={2}>Second</MenuItem>
-                            </Select>
-                        </FormControl>
-                        <Algorithm treeData={props.treeData} setTreeData={props.setTreeData}/>
-                    </Box>
-                </CardContent>
-            </Card>
-        </div>
+        <Box className="preset-box">
+            <h4 className="header-4">Preset Binary Tree</h4>
+            <FormControl fullWidth className="select-form">
+                <InputLabel>
+                    Preset Tree
+                </InputLabel>
+                <Select className='select' value={props.value} label="tree" onChange={(event: SelectChangeEvent) => props.setValue(event.target.value as string)}>
+                    <MenuItem value={0}>None</MenuItem>
+                    <MenuItem value={1}>First</MenuItem>
+                    <MenuItem value={2}>Second</MenuItem>
+                </Select>
+            </FormControl>
+            <Algorithm treeData={props.treeData} setTreeData={props.setTreeData} />
+        </Box>
     )
 }
 
