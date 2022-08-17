@@ -16,13 +16,13 @@ interface treeObject {
 }
 
 const starterTree = {
-  name: 'StarterNode',
+  name: "100",
   children: []
 }
 
 const Trie: NextPage = () => {
     const [treeData, setTreeData] = useState<treeObject>(starterTree)
-    const [nodeList, setNodeList] = useState<Array<string>>([])
+    const [nodeList, setNodeList] = useState<Array<string>>(["100"])
     return (
         <div>
             <Head>
